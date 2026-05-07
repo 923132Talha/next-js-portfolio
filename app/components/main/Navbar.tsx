@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-//@ts-expect-error
+// @ts-expect-error: Temporary fix for missing type definitions
 import { Link } from 'react-scroll'
 
 const Navbar = () => {
