@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-//@ts-ignore
+//@ts-expect-error
 import { Link } from 'react-scroll'
 
 const Navbar = () => {
