@@ -84,6 +84,18 @@ export const Frontend_skill = [
       width: 70,
       height: 70,
     },
+    {
+      skill_name: "git and github",
+      Image: "/git.png",
+      width: 70,
+      height: 70,
+    },
+    {
+      skill_name: "vercel",
+      Image: "/vercel.jpg",
+      width: 70,
+      height: 70,
+    },
 
   ];
   
