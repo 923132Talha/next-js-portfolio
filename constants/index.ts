@@ -87,14 +87,14 @@ export const Frontend_skill = [
     {
       skill_name: "git and github",
       Image: "/git.png",
-      width: 70,
-      height: 70,
+      width: 170,
+      height: 170,
     },
     {
       skill_name: "vercel",
       Image: "/vercel.jpg",
-      width: 70,
-      height: 70,
+      width: 170,
+      height: 170,
     },
 
   ];

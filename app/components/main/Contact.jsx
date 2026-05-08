@@ -22,6 +22,7 @@ const Contact = () => {
           className="w-full lg:w-1/2 text-white text-center mb-8 lg:mb-0"
         >
           <h2 className="text-6xl font-bold leading-tight mb-4">Contact</h2>
+          <h6>talhamalik923142@gmail.com</h6>
         </motion.div>
 
         <motion.div
