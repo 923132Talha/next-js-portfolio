@@ -1,44 +1,4 @@
-
-  export const Mobile_Frontend_skill = [
-    {
-      skill_name: "C",
-      Image: "/c.png",
-      width: 80,
-      height: 80,
-    },
-    {
-      skill_name: "C#",
-      Image: "/csharp.png",
-      width: 80,
-      height: 80,
-    },
-    {
-      skill_name: ".NET",
-      Image: "/net.png",
-      width: 80,
-      height: 80,
-    },
-    {
-      skill_name: "Java",
-      Image: "/java.png",
-      width: 90,
-      height: 90,
-    },
-    {
-      skill_name: "Dart",
-      Image: "/dart.png",
-      width: 80,
-      height: 80,
-    },
-    {
-      skill_name: "Flutter",
-      Image: "/flutter.jpg",
-      width: 80,
-      height: 80,
-    },
-  ];
-  
-  export const Frontend_skill = [
+export const Frontend_skill = [
     {
       skill_name: "Html 5",
       Image: "/html.png",
