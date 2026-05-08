@@ -36,7 +36,6 @@ const Projects = () => {
                   {project.githubUrl && (
                     <Link href={project.githubUrl} target="_blank">
                       <span className="text-white hover:text-indigo-700 text-sm font-semibold">Live Demo</span>
-                      <span className="text-white hover:text-indigo-700 text-sm font-semibold">Github</span>
                     </Link>
                   )}
                 </div>
