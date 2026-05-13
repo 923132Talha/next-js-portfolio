@@ -33,11 +33,15 @@ const Projects = () => {
                 <h2 className="text-xl font-semibold text-white">{project.title}</h2>
                 <p className="mt-2 text-white">{project.description}</p>
                 <div className="mt-4 flex justify-between items-center">
-                  {project.liveDemo && (
+                  {project.liveDemo ? (
                     <Link href={project.liveDemo} target="_blank">
                       <span className="text-white hover:text-indigo-700 text-sm font-semibold">Live Demo</span>
                     </Link>
-                  )}
+                  ):
+                   <Link href={project.githubUrl} target="_blank">
+                      <span className="text-white hover:text-indigo-700 text-sm font-semibold">Github</span>
+                    </Link>
+                  }
                 </div>
               </div>
             </motion.div>
