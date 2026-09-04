@@ -50,6 +50,10 @@ const HeroContent = () => {
                         className="text-white hover:text-gray-300">
                         <FaLinkedin className="h-8 w-8 sm:h-9 sm:w-9" />
                     </motion.a>
+
+                    <button className='py-2 px-3 border border-[#7042f88b]'>
+                        Download Resume
+                    </button>
                 </div>
             </div>
 
