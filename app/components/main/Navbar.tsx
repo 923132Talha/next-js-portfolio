@@ -31,6 +31,7 @@ const Navbar = () => {
                     <div className="flex items-center justify-center gap-9 w-full h-auto rounded-full text-gray-200">
                         <Link to="about" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>About</Link>
                         <Link to="skills" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Skills</Link>
+                        <Link to="experience" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Experience</Link>
                         <Link to="projects" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Portfolio</Link>
                         <Link to="contact" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Contact</Link>
                     </div>
@@ -50,6 +51,7 @@ const Navbar = () => {
                 >
                     <Link to="about" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>About</Link>
                     <Link to="skills" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Skills</Link>
+                    <Link to="experience" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Experience</Link>
                     <Link to="projects" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Portfolio</Link>
                     <Link to="contact" smooth={true} duration={500} offset={-60} className="cursor-pointer" onClick={closeMenu}>Contact</Link>
                 </div>
