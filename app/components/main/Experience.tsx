@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, GraduationCap, Calendar, MapPin, Building, Award } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, MapPin, Building } from "lucide-react";
 
 const experienceData = [
   {
