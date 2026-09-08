@@ -4,6 +4,7 @@ import Projects from "./components/main/Projects"
 import Contact from "./components/main/Contact"
 import Footer from "./components/main/Footer"
 import Experience from "./components/main/Experience";
+import About from "./components/main/About"
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <div className="relative z-10 flex flex-col gap-20">
         <Hero />
         <Skills />
+        <About/>
         <Experience/>
         <Projects />
         <Contact />
