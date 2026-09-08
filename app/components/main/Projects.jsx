@@ -33,11 +33,7 @@ const Projects = () => {
                 <h2 className="text-xl font-semibold text-white">{project.title}</h2>
                 <p className="mt-3 text-white">{project.description}</p>
                 <div className="mt-4 flex justify-between items-center">
-                  {project.liveDemo ? (
-                    <Link href={project.liveDemo} target="_blank">
-                      <span className="text-white hover:text-indigo-700 text-md font-semibold">Live Demo</span>
-                    </Link>
-                  ):
+                  {
                    <Link href={project.githubUrl} target="_blank">
                       <span className="text-white hover:text-indigo-700 text-md font-semibold">Github</span>
                     </Link>
