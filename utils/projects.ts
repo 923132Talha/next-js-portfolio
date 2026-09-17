@@ -14,7 +14,7 @@ const projects = [
     githubUrl: 'https://github.com/923132Talha/brand-fullstack-frontend'
   },
   {
-    title: 'Whatsupp ( MERN Stack, socket.io, zustand, tailwind css)',
+    title: 'Chatify ( MERN Stack, socket.io, zustand, tailwind css)',
     description: 'A full-stack chat application with features like authentication, profile management online status and sending photos/messages to anyone.',
     imageUrl: '/p3.png',
     liveDemo: "",
