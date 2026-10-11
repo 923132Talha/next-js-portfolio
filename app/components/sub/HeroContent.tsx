@@ -64,7 +64,7 @@ const HeroContent = () => {
                 className="flex w-full h-full justify-center items-center mt-10 md:mt-0">
                 <div className="w-[390px] h-[390px] rounded-full bg-gray-800 overflow-hidden flex items-center justify-center">
                     <Image
-                        src="/pp.jpg"
+                        src="/profile.png"
                         alt="profile"
                         height={330}
                         width={330}
