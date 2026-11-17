@@ -50,7 +50,7 @@ const HeroContent = () => {
                         className="text-white hover:text-gray-300">
                         <FaLinkedin className="h-8 w-8 sm:h-9 sm:w-9" />
                     </motion.a>
-                    
+
                     <motion.a variants={slideInFromLeft(1.4)} href="/TalhaResume.pdf" target='_blank' >
                         <button className='py-2 px-3 border border-[#7042f88b] text-white cursor-pointer rounded-md'>
                             Download Resume
@@ -69,7 +69,7 @@ const HeroContent = () => {
                         height={330}
                         width={330}
                         priority
-                        className="object-cover w-full"
+                        className="object-cover w-full h-full object-top"
                     />
                 </div>
             </motion.div>

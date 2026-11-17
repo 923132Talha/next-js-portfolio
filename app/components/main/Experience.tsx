@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Briefcase, GraduationCap, Calendar, MapPin, Building } from "lucide-react";
+
+// Imported directly from your motion.ts file
+import { slideInFromLeft, slideInFromRight, slideInTitle } from "../../../utils/motion";
 
 const experienceData = [
   {
@@ -53,15 +57,25 @@ const experienceData = [
 export default function ExperienceCards() {
   const [activeTab, setActiveTab] = useState("all");
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const filteredData =
     activeTab === "all"
       ? experienceData
       : experienceData.filter((item) => item.type === activeTab);
 
   return (
-    <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8" id="experience">
+    <section ref={ref} className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8" id="experience">
       {/* Header & Filter Controls */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <motion.div 
+        variants={slideInTitle(0.1)}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
+      >
         <div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Experience & <span className="text-blue-500">Education</span>
@@ -104,77 +118,76 @@ export default function ExperienceCards() {
             <GraduationCap size={16} /> Education
           </button>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Grid Layout - Cards in Rows */}
+      {/* Grid Layout */}
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AnimatePresence>
-          {filteredData.map((item) => (
-            <motion.div
-              key={item.id}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              className="group relative flex flex-col justify-between bg-slate-900/70 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 backdrop-blur-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1.5 transition-all duration-300"
-            >
-              {/* Card Top Header */}
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span
-                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${
-                      item.type === "work"
-                        ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
-                        : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                    }`}
-                  >
-                    {item.type === "work" ? <Briefcase size={12} /> : <GraduationCap size={14} />}
-                    {item.roleType}
-                  </span>
+        <AnimatePresence mode="popLayout">
+          {filteredData.map((item, index) => {
+            const animationVariant = index % 2 === 0 ? slideInFromLeft(index * 0.15) : slideInFromRight(index * 0.15);
 
-                  <span className="flex items-center gap-1 text-xs text-gray-400">
-                    <Calendar size={12} className="text-blue-400" />
-                    {item.period}
-                  </span>
+            return (
+              <motion.div
+                key={item.id}
+                layout
+                variants={animationVariant}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                exit="hidden"
+                className="group relative flex flex-col justify-between bg-slate-900/70 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 backdrop-blur-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1.5 transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span
+                      className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${
+                        item.type === "work"
+                          ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                          : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                      }`}
+                    >
+                      {item.type === "work" ? <Briefcase size={12} /> : <GraduationCap size={14} />}
+                      {item.roleType}
+                    </span>
+
+                    <span className="flex items-center gap-1 text-xs text-gray-400">
+                      <Calendar size={12} className="text-blue-400" />
+                      {item.period}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between text-xs text-gray-400 mt-1 mb-4 pb-3 border-b border-slate-800">
+                    <span className="flex items-center gap-1 font-medium text-gray-300">
+                      <Building size={12} className="text-blue-400" /> {item.organization}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin size={12} /> {item.location}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 text-xs sm:text-sm text-gray-300 mb-6 list-disc list-inside marker:text-blue-500 leading-relaxed">
+                    {item.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Job / Degree Title */}
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                  {item.title}
-                </h3>
-
-                {/* Organization & Location */}
-                <div className="flex items-center justify-between text-xs text-gray-400 mt-1 mb-4 pb-3 border-b border-slate-800">
-                  <span className="flex items-center gap-1 font-medium text-gray-300">
-                    <Building size={12} className="text-blue-400" /> {item.organization}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin size={12} /> {item.location}
-                  </span>
-                </div>
-
-                {/* Description Bullets */}
-                <ul className="space-y-2 text-xs sm:text-sm text-gray-300 mb-6 list-disc list-inside marker:text-blue-500 leading-relaxed">
-                  {item.description.map((point, i) => (
-                    <li key={i}>{point}</li>
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+                  {item.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-0.5 text-[11px] font-medium rounded-md bg-slate-800 text-gray-300 border border-slate-700/50 group-hover:border-blue-500/30 transition-colors"
+                    >
+                      {tag}
+                    </span>
                   ))}
-                </ul>
-              </div>
-
-              {/* Bottom Tech Pills */}
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-                {item.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-0.5 text-[11px] font-medium rounded-md bg-slate-800 text-gray-300 border border-slate-700/50 group-hover:border-blue-500/30 transition-colors"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
       </motion.div>
     </section>
