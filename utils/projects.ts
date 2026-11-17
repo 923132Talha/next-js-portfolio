@@ -14,6 +14,13 @@ const projects = [
     githubUrl: 'https://github.com/923132Talha/brand-fullstack-frontend'
   },
   {
+    title: 'ResumeLens ( React.js, tailwind css, puter.js)',
+    description: 'AI-powered ATS & resume auditing web app built with Next.js, Tailwind CSS, and OpenAI GPT-4o. Extracts PDF text, scores resumes across 5 key metrics, and generates actionable recruiter-grade feedback.',
+    imageUrl: '/p4.png',
+    liveDemo: "https://resumelens-ai-resume-analyzer-theta.vercel.app/",
+    githubUrl: 'https://github.com/923132Talha/resumelens-ai--resume-analyzer',
+  },
+  {
     title: 'Chatify ( MERN Stack, socket.io, zustand, tailwind css)',
     description: 'A full-stack chat application with features like authentication, profile management online status and sending photos/messages to anyone.',
     imageUrl: '/p3.png',
